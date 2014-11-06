@@ -1,0 +1,11 @@
+{
+  "name": "sea-b24-data-structures-and-algorithms",
+  "version": "1.0.0",
+  "description": "exercises from oriely book for stacks, queues, and linked lists",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "paul laskowski",
+  "license": "mit"
+}
