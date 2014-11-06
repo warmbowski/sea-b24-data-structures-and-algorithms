@@ -33,7 +33,7 @@ function toString() {
   var retStr = "";
   for (var i = 0; i < this.dataStore.length; ++i) {
     retStr += this.dataStore[i] + "\n"; }
-    return retStr; 
+    return retStr;
 }
 
 function empty() {
@@ -41,7 +41,7 @@ function empty() {
     return true; }
   else {
     return false;
-  } 
+  }
 }
 
 module.exports = Dequeue;
