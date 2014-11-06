@@ -1,6 +1,6 @@
+var expr = process.argv[2];
 var stack = [];
 var unmatched = "";
-var expr = process.argv[2];
 var noun = "parenthesis";
 
 for (i = 0; i < expr.length; i++) {
