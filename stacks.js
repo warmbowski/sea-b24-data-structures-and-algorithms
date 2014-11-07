@@ -1,30 +1,28 @@
+'use strict';
+
 function Stack() {
   this.dataStore = [];
   this.top = 0;
-  this.push = push;
-  this.pop = pop;
-  this.peek = peek;
-  this.clear = clear;
-  this.length = length;
 }
 
-function push(element) {
+Stack.prototype.push = function(element) {
   this.dataStore[this.top++] = element;
-}
-function peek() {
-  return this.dataStore[this.top-1];
-}
+};
 
-function pop() {
+Stack.prototype.peek = function() {
+  return this.dataStore[this.top - 1];
+};
+
+Stack.prototype.pop = function() {
   return this.dataStore[--this.top];
-}
+};
 
-function clear() {
-  this.top = 0; 
+Stack.prototype.clear = function() {
+  this.top = 0;
   this.dataStore.length = 0;
-}
+};
 
-function length() { return this.top;
-}
+Stack.prototype.length = function() { return this.top;
+};
 
 modules.exports = Stack;

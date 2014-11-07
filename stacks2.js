@@ -1,16 +1,20 @@
-var expr = process.argv[2];
-var newExpr = ""
-var operands = [];
-var operators = [];
+'use strict';
+var arg = process.argv[2];
 
-for (i = 0; i < expr.length; i++) {
-  if (expr[i] == '+' || expr[i] == '-' || expr[i] == '*' || expr[i] == '/') {
-    operators.push(expr[i]);
-  } else if (expr[i] == " ") {
-    
-  } else {
-    operands.push(expr[i]);
+function postfixToInfix(expr) {
+  //returns string containing new math expression in rpn
+
+  var operands = [];
+  var operators = [];
+
+  for (var i = 0; i < expr.length; i++) {
+    if (expr[i] == '+' || expr[i] == '-' || expr[i] == '*' || expr[i] == '/') {
+      operators.push(expr[i]);
+    } else if (!isNaN(expr[i])) {
+      operands.push(expr[i]);
+    }
   }
+  return operands.join(' ') + ' ' + operators.join(' ');
 }
-newExpr = operands.join(" ") + " " + operators.join(" ");
-console.log(newExpr);
+
+console.log(postfixToInfix(arg));

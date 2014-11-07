@@ -2,7 +2,6 @@ var expr = process.argv[2];
 
 function Queue() {
   this.dataStore = [];
-  this.enqueue = enqueue;
   this.dequeue = dequeue;
   this.dequeueByCode = dequeueByCode;
   this.front = front;
@@ -12,7 +11,7 @@ function Queue() {
   this.empty = empty;
 }
 
-function enqueue(element) {
+Queue.prototype.enqueue = function(element) {
   this.dataStore.push(element);
 }
 

@@ -1,28 +1,25 @@
-var expr = process.argv[2];
-var stack = [];
-var unmatched = "";
-var noun = "parenthesis";
+'use strict';
+var arg = process.argv[2];
 
-for (i = 0; i < expr.length; i++) {
-  if (expr[i] == "(") {
-    stack.push((i+1).toString());
-  };
-  if (expr[i] == ")") {
-    if (stack.length == 0) {
-      unmatched += ((i+1).toString() + ", ");
-    } else {
-      stack.pop();
-    };
-  };
-};
+function unbalancedParens(expr) {
+  //returns an array of positions of unbalanced parenteses
 
-//if (stack.length == 0) unmatched = unmatched.replace(", ", "")
-unmatched += stack.join(", ")
-if (unmatched.indexOf(",") >= 0) noun = "parentheses";
+  var stack = [];
+  var unmatched = [];
 
-console.log(expr);
-if (unmatched == "" ) {
-  console.log("There are no unmatched parnetheses");
-} else {
-  console.log("Unmatched " + noun + " at " + unmatched);
+  for (var i = 0; i < expr.length; i++) {
+    if (expr[i] == '()') {
+      stack.push(i + 1);
+    }
+    if (expr[i] == ')') {
+      if (stack.length === 0) {
+        unmatched.push(i + 1);
+      } else {
+        stack.pop();
+      }
+    }
+  }
+  return unmatched.concat(stack);
 }
+
+console.log (unbalancedParens(arg));
