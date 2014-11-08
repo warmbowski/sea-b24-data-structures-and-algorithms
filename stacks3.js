@@ -1,9 +1,21 @@
-var expr = process.argv[2];
-var newExpr = ""
-var stack = [];
+'use strict';
+var arg = process.argv[2];
 
-for (i = 0; i < expr.length; i++) {
-  if (expr[i] != 'Y') stack.push(expr[i]);
+function pezDispenserNoYellow(expr) {
+  // takes in a string of Pez colors 'RWRRYRW'
+  // returns a string containing the same order of candies
+  // but excluding the yellow ones 'RWRRRW'
+
+  var newExpr = '';
+  var stack = [];
+
+  for (var i = 0; i < expr.length; i++) {
+    if (expr[i] != 'Y') stack.push(expr[i]);
+  }
+  newExpr += stack.join('');
+  return newExpr;
 }
-newExpr += stack.join("");
-console.log(newExpr);
+
+console.log(pezDispenserNoYellow(arg));
+
+module.exports = pezDispenserNoYellow;

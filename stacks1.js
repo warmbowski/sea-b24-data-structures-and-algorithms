@@ -2,7 +2,8 @@
 var arg = process.argv[2];
 
 function unbalancedParens(expr) {
-  //returns an array of positions of unbalanced parenteses
+  // takes in a string containing a math expression
+  // returns an array of positions of unbalanced parenteses
 
   var stack = [];
   var unmatched = [];
@@ -23,3 +24,5 @@ function unbalancedParens(expr) {
 }
 
 console.log (unbalancedParens(arg));
+
+module.exports = unbalancedParens;

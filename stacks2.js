@@ -2,7 +2,8 @@
 var arg = process.argv[2];
 
 function postfixToInfix(expr) {
-  //returns string containing new math expression in rpn
+  // takes in a string containing a math expression
+  // returns string containing new math expression in rpn
 
   var operands = [];
   var operators = [];
@@ -18,3 +19,5 @@ function postfixToInfix(expr) {
 }
 
 console.log(postfixToInfix(arg));
+
+module.exports = postfixToInfix;
