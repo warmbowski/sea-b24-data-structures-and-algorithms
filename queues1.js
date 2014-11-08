@@ -1,47 +1,43 @@
+'use strict';
+
 function Dequeue() {
   this.dataStore = [];
-  this.enqueue = enqueue;
-  this.dequeueFront = dequeueFront;
-  this.dequeueBack = dequeueBack;
-  this.front = front;
-  this.back = back;
-  this.toString = toString;
-  this.empty = empty;
 }
 
-function enqueue(element) {
+Dequeue.prototype.enqueue = function(element) {
   this.dataStore.push(element);
-}
+};
 
-function dequeueFront() {
+Dequeue.prototype.dequeueFront = function() {
   return this.dataStore.shift();
-}
+};
 
-function dequeueBack() {
+Dequeue.prototype.dequeueBack = function() {
   return this.dataStore.pop();
-}
+};
 
-function front() {
+Dequeue.prototype.front = function() {
   return this.dataStore[0];
-}
+};
 
-function back() {
-  return this.dataStore[this.dataStore.length-1];
-}
+Dequeue.prototype.back = function() {
+  return this.dataStore[this.dataStore.length - 1];
+};
 
-function toString() {
-  var retStr = "";
+Dequeue.prototype.toString = function() {
+  var retStr = '';
   for (var i = 0; i < this.dataStore.length; ++i) {
-    retStr += this.dataStore[i] + "\n"; }
-    return retStr;
-}
+    retStr += this.dataStore[i] + '\n';
+  }
+  return retStr;
+};
 
-function empty() {
+Dequeue.prototype.empty = function() {
   if (this.dataStore.length === 0) {
-    return true; }
-  else {
+    return true;
+  } else {
     return false;
   }
-}
+};
 
 module.exports = Dequeue;

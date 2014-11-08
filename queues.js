@@ -1,59 +1,56 @@
-var expr = process.argv[2];
+'use strict';
 
 function Queue() {
   this.dataStore = [];
-  this.dequeue = dequeue;
-  this.dequeueByCode = dequeueByCode;
-  this.front = front;
-  this.back = back;
-  this.toString = toString;
-  this.toStringByCode = toStringByCode;
-  this.empty = empty;
 }
 
 Queue.prototype.enqueue = function(element) {
   this.dataStore.push(element);
-}
+};
 
-function dequeue() {
-return this.dataStore.shift();
-}
+Queue.prototype.dequeue = function() {
+  return this.dataStore.shift();
+};
 
-function front() {
-  return this.dataStore[0];
-}
-function back() {
-  return this.dataStore[this.dataStore.length-1];
-}
-
-function empty() {
-  if (this.dataStore.length === 0) {
-    return true; 
-  } else {
-    return false;
-  }
-}
-
-function Patient(name, code) { 
-  this.name = name; 
-  this.code = code;
-}
-
-function dequeueByCode() {
+Queue.prototype.dequeueByCode = function() {
   var entry = 0;
   for (var i = 0; i < this.dataStore.length; ++i) {
     //highest code has priority
     if (this.dataStore[i].code > this.dataStore[entry].code) entry = i;
   }
-  return this.dataStore.splice(entry,1); 
-}
+  return this.dataStore.splice(entry, 1);
+};
 
-function toStringByCode() {
-  var retStr = "";
+Queue.prototype.front = function() {
+  return this.dataStore[0];
+};
+
+Queue.prototype.back = function() {
+  return this.dataStore[this.dataStore.length - 1];
+};
+
+Queue.prototype.empty = function() {
+  if (this.dataStore.length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+Queue.prototype.toString = function() {
+  var retStr = '';
   for (var i = 0; i < this.dataStore.length; ++i) {
-    retStr += this.dataStore[i].name + " code: " + this.dataStore[i].code + "\n";
+    retStr += this.dataStore[i] + '\n';
   }
   return retStr;
-}
+};
+
+Queue.prototype.toStringByCode = function() {
+  var retStr = '';
+  for (var i = 0; i < this.dataStore.length; ++i) {
+    retStr += this.dataStore[i].name + ' code: ' + this.dataStore[i].code + '\n';
+  }
+  return retStr;
+};
 
 module.exports = Queue;

@@ -1,19 +1,25 @@
+'use strict';
 var Dequeue = require ('./queues1.js');
 var expr = process.argv[2];
 
-var d = new Dequeue();
-var isPalendrome = ""
+function testPalendrome() {
 
-d.dataStore = expr.split("");
+  var d = new Dequeue();
+  var isPalendrome = '';
 
-while (d.dataStore.length > 1) {
-  if (d.front() === d.back()) {
-    isPalendrome = " is a palendrome";
-    d.dequeueFront();
-    d.dequeueBack();
-  } else {
-    isPalendrome = " is NOT a palendrome";
-    break;
+  d.dataStore = expr.split('');
+
+  while (d.dataStore.length > 1) {
+    if (d.front() === d.back()) {
+      isPalendrome = ' is a palendrome';
+      d.dequeueFront();
+      d.dequeueBack();
+    } else {
+      isPalendrome = ' is NOT a palendrome';
+      break;
+    }
   }
+  return expr + isPalendrome;
 }
-console.log(expr + isPalendrome);
+
+console.log(testPalendrome());
