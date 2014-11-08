@@ -7,14 +7,14 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     jshint: {
-      all: 'queues*.js', //['stacks*.js', 'queues*.js', 'llists*.js'],
+      all: ['stacks*.js', 'queues*.js', 'llists*.js'],
       options: {
         jshintrc: true
       }
     },
 
     jscs: {
-      src: 'queues*.js', //['stacks*.js', 'queues*.js', 'llists*.js'],
+      src: ['stacks*.js', 'queues*.js', 'llists*.js'],
       options: {
         config: '.jscsrc'
       }
