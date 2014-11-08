@@ -22,7 +22,8 @@ Stack.prototype.clear = function() {
   this.dataStore.length = 0;
 };
 
-Stack.prototype.length = function() { return this.top;
+Stack.prototype.length = function() {
+  return this.top;
 };
 
-modules.exports = Stack;
+module.exports = Stack;
