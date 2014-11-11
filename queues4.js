@@ -24,6 +24,7 @@ function seeNextPatientInQueue() {
   return 'Patient being treated: ' + seen[0].name;
 }
 
+//testing functions in lieu of real menu system or ui
 console.log(enqueuePatient('fred', 6));
 console.log(enqueuePatient('wilma', 1));
 console.log('--------------------');
