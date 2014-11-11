@@ -46,4 +46,28 @@ LList.prototype.insert = function(newElement, item) {
   current.next = newNode;
 };
 
+// Exercise 6-1
+LList.prototype.advance = function(currNode, n) {
+  while(n > 0 && currNode.next != null) {
+    currNode = currNode.next;
+    n--;
+  }
+  return currNode;
+},
+
+// Exercise 6-2
+LList.prototype.back = function(currNode, n) {
+  while(n > 0 && this.findPrevious(currNode) != null) {
+    currNode = this.findPrevious(currNode);
+    n--;
+  }
+  return currNode;
+},
+
+// Exercise 6-1
+LList.prototype.show = function(currNode) {
+  nodeAssoc = 'Next:' + currNode.next + 'Prev: ' + findPrevious(currNode).element;
+  return nodeAssoc;
+}
+
 module.exports = LList;
